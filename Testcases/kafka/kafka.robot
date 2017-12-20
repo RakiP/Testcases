@@ -1,7 +1,7 @@
 *** Settings ***
 Library     KafkaLibrary
 Library     String
-Suite Setup     Connect To Kafka	kafka:9092
+Suite Setup     Connect To Kafka
 Suite Teardown      Close       #close kafka producer
 
 *** Variables ***
@@ -12,8 +12,8 @@ ${partition}    1
 
 *** Test Cases ***
 Connect to topics
-    connect producer	kafka:9092
-    connect consumer	kafka:9092      group_id=mygroup
+    connect producer
+    connect consumer      group_id=mygroup
 
 Create topic partition
     create topicpartition  ${topic}     partition=${partition}
